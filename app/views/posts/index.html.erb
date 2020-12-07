@@ -1,0 +1,21 @@
+<h1>All Posts</h1>
+
+<%= link_to 'New Post', new_post_path %>
+
+<% @posts.each do |post| %>
+<article class="post">
+<% if logged_in? %>
+  <button type="button" class="btn btn-default"><%= link_to 'Show', post %>
+
+  
+  <% end %>
+  <small><strong><%= post.user.name %></strong></small>
+  <% if post.image && post.image.url %>
+    <%= image_tag post.image.url(), class: "image" %>
+  <% end %>
+  <br>
+  <large><%= post.posts %></large>
+  <br>
+  <small><%= post.created_at.strftime('%Y/%-m/%-d %-H:%-M') %></small>
+  <% end %>
+  </article>
