@@ -1,18 +1,18 @@
 <div class= "content">
 <h1>All Posts</h1>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
 
 <% @posts.each do |post| %>
 <article class="post">
 <% if logged_in? %>
-  <button type="button" class="btn btn-default"><%= link_to 'Show', post %>
+
 
   <% end %>
   <small><strong><%= post.user.name %></strong></small>
   <% if post.image && post.image.url %>
-    <%= image_tag post.image.url, size: 30*35, class: "image" %>
-
+    <p><%= image_tag post.image.url, size: 25*25, class: "image" %><p>
+      <%= link_to 'Show', post, class: "btn btn-info" %>
   <% end %>
   <br>
   <large><%= post.posts %></large>

@@ -23,12 +23,17 @@
     <br>
     <p><%= form.password_field :password_confirmation, placeholder: 'password_confirmation', class: "log-in-tag" %></p>
     <br>
-    <p><%= form.file_field :icon, placeholder: 'icon', class: "log-in-tag" %></p>
+    <p>
+      <%= form.label :image, class: "log-in-tag" %>
+      <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
+    </p>
 
     <%= form.submit "Create my account" , class: "btn btn-primary"  %>
     <p>Already have an account？<%= link_to 'Login', new_session_path %></p>
   </div>
   <% end %>
-  
+
 
 </div>

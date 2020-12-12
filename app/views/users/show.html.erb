@@ -9,8 +9,9 @@
             </span>
             <strong>Email:</strong>
               <%= @user.email %>
-
-
+              <p>
+                <%= image_tag(@user.image.url, size:17*17) if @user.image && @user.image.url %>
+              </p>
           <% if logged_in? %>
               <% if @user == current_user %>
                 <%= link_to 'New Post', new_post_path , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
@@ -18,4 +19,6 @@
                 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger "%>
               <% end %>
           <% end %>
+          <hr>
+          <%= link_to 'See posts', posts_path, class: "btn btn-primary" %>
 </div>
