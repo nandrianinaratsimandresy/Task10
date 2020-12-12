@@ -4,10 +4,7 @@
   <div class="col-xs-8 col-xs-push-2">
     <p id="notice"><%= notice %></p>
   </div>
-
-
-
-            <span style="font-size:36px">
+          <span style="font-size:36px">
               <%= @user.name %><br>
             </span>
             <strong>Email:</strong>
@@ -21,5 +18,4 @@
                 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger "%>
               <% end %>
           <% end %>
-
 </div>

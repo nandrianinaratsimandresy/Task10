@@ -7,7 +7,9 @@ body {
   font-size: 14px;
   color: #262626;
 }
-
+.content{
+  text-align: center;
+}
 .navbar {
   background-color: #fff;
   border-bottom: 1px solid rgba(0,0,0,.0975);
@@ -110,7 +112,9 @@ body {
         line-height: 14px;
         font-size: 14px;
         font-weight: 600;
+        color: white;
       }
+
 
       input {
         border: 1px solid #efefef;

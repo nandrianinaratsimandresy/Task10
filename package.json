@@ -2,7 +2,7 @@
   "name": "instagram-clone",
   "private": true,
   "dependencies": {
-    "bootstrap": "4",
+    "bootstrap": "3",
     "jquery": "^3.5.1"
   }
 }
