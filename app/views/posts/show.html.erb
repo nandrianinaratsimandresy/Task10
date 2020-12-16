@@ -9,15 +9,17 @@
 
 <% unless @post.user_id == current_user.id %>
   <% if @favorite.present? %>
-    <button type="button" class="btn btn-info"><%= link_to 'Unfavorite', favorite_path(id: @favorite.id), method: :delete %>
+    <%= link_to 'Unfavorite', favorite_path(id: @favorite.id), method: :delete, class:"btn btn-info" %>
   <% else %>
-    <button type="button" class="btn btn-info"><%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post %>
+    <%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post, class: "btn btn-info" %>
   <% end %>
 <% end %>
 
-<% if @post.user_id == current_user.id %>
-  <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_post_path(@post) %>
+<% if session[:user_id] == @post.user.id %>
+  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-danger" %>
   <button type="button" class="btn btn-default"><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-danger hidden" %>
 <% end %>
 
 <button type="button" class="btn btn-default"><%= link_to 'Back', posts_path %>

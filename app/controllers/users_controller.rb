@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @users = User.all.order(created_at: "DESC")
-  end
+  # def index
+  #   @users = User.all.order(created_at: "DESC")
+  # end
 
   def new
     @user = User.new
-    if logged_in?
-      redirect_to posts_path
-    end
+    # if logged_in?
+    #   redirect_to posts_path
+    # end
   end
 
   def create
@@ -23,11 +23,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
     @user = User.find(params[:id])
+    unless session[:user_id] == @user.id
+      flash[:notice] = 'Sorry, you can only edit your profile'
+      redirect_to user_path(session[:user_id])
+      return
+    end
   end
 
   def update

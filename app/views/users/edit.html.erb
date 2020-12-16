@@ -12,6 +12,12 @@
 <p><%= form.email_field :email, placeholder: 'email' %></p>
 <p><%= form.password_field :password, placeholder: 'password' %></p>
 <p><%= form.password_field :password_confirmation, placeholder: 'password_confirmation' %></p>
+<p>
+  <%= form.label :image, class: "log-in-tag" %>
+  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :image_cache %>
+</p>
 <div class="setup_form_button">
   <%= form.submit "Update my account" %>
 </div>

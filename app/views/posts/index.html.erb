@@ -13,6 +13,7 @@
   <% if post.image && post.image.url %>
     <p><%= image_tag post.image.url, size: 25*25, class: "image" %><p>
       <%= link_to 'Show', post, class: "btn btn-info" %>
+      
   <% end %>
   <br>
   <large><%= post.posts %></large>

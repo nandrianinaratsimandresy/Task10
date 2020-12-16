@@ -17,7 +17,10 @@
                 <%= link_to 'New Post', new_post_path , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
                 <%= link_to 'Edit Info', edit_user_path(@user) , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
                 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger "%>
+              <%else%>
+                <%= link_to 'Edit Info', edit_user_path(@user) , class: "btn btn-outline-dark common-btn edit-profile-btn" %>
               <% end %>
+
           <% end %>
           <hr>
           <%= link_to 'See posts', posts_path, class: "btn btn-primary" %>

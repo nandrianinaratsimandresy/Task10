@@ -22,6 +22,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    unless session[:user_id] == @post.user_id
+      flash[:notice] = 'Sorry, you can only edit your posts'
+      redirect_to posts_path(session[:user_id])
+      return
+    end
   end
 
   def create
